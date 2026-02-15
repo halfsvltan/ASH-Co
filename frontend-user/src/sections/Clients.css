@@ -1,0 +1,70 @@
+.clients {
+  padding: 90px 8%;
+  background-color: #f9f9f9;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 48px;
+  color: #111111;
+}
+
+/* GRID */
+.clients__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 32px;
+  align-items: center;
+}
+
+/* CARD */
+.client-card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 28px;
+  height: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.client-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* LOGO IMAGE */
+.client-logo {
+  max-width: 100%;
+  max-height: 60px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.85;
+  transition: filter 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* HOVER EFFECT */
+.client-card:hover .client-logo {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .clients {
+    padding: 70px 6%;
+  }
+
+  .client-card {
+    height: 110px;
+  }
+
+  .client-logo {
+    max-height: 52px;
+  }
+}

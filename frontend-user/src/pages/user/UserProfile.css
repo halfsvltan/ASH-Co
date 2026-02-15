@@ -1,0 +1,101 @@
+.user-profile {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.avatar-wrapper img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-edit {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px;
+  border-radius: 50%;
+}
+
+.profile-text h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.profile-text p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.profile-info {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.profile-btn {
+  margin-top: 24px;
+  width: 100%;
+  height: 40px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.profile-btn:hover {
+  opacity: 0.85;
+}
+
+.profile-loading {
+  margin-top: 120px;
+  text-align: center;
+}
+
+.username {
+  font-size: 13px;
+  color: #555;
+}
+
+.profile-info div {
+  margin-top: 12px;
+}
+
+.profile-info span {
+  font-size: 12px;
+  color: #777;
+  display: block;
+}
+
+.profile-info p {
+  margin: 4px 0 0;
+  font-size: 14px;
+}

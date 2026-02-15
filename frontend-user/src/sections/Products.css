@@ -1,0 +1,139 @@
+.products {
+  padding: 140px 8%;
+  background: #ffffff;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 3.2rem;
+  color: #8b0000;
+  margin-bottom: 10px;
+}
+
+.section-desc {
+  max-width: 700px;
+  margin: 0 auto 90px;
+  color: #666;
+  font-size: 1.05rem;
+}
+
+/* GRID */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+  gap: 56px;
+}
+
+/* CARD */
+.product-card {
+  background: #fff;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.12);
+
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.product-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== BAGIAN GAMBAR (DIPERBESAR) ===== */
+.product-slider {
+  position: relative;
+  height: 480px; /* 🔥 INI KUNCI UTAMA */
+  overflow: hidden;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  animation: fadeZoom 3s ease-in-out;
+}
+
+@keyframes fadeZoom {
+  from {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* DOT */
+.slider-dots {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #8b0000;
+}
+
+/* ===== DESKRIPSI (DIPERKECIL & RAPAT) ===== */
+.product-content {
+  padding: 26px 30px 34px;
+  text-align: left;
+}
+
+.product-content h3 {
+  font-size: 1.5rem;
+  color: #8b0000;
+  margin-bottom: 10px;
+}
+
+.product-content p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  max-width: 90%;
+}
+
+/* CTA */
+.products-cta {
+  margin-top: 90px;
+}
+
+.products-cta button {
+  padding: 18px 48px;
+  background: #8b0000;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-slider {
+    height: 360px; /* tetap besar di mobile */
+  }
+
+  .product-content {
+    padding: 22px;
+  }
+}
