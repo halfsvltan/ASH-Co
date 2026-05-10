@@ -1,0 +1,240 @@
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.footer {
+  position: relative;
+
+  padding: 120px 7% 30px;
+
+  background: linear-gradient(
+    to bottom,
+    #111111,
+    #0b0b0b
+  );
+
+  color: #ffffff;
+
+  overflow: hidden;
+}
+
+/* BACKGROUND GLOW */
+.footer::before {
+  content: "";
+
+  position: absolute;
+
+  top: -180px;
+  right: -180px;
+
+  width: 420px;
+  height: 420px;
+
+  background: rgba(139, 0, 0, 0.15);
+
+  border-radius: 50%;
+
+  filter: blur(110px);
+
+  pointer-events: none;
+}
+
+/* CONTAINER */
+.footer__container {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    1.3fr
+    1fr
+    1fr;
+
+  gap: 60px;
+
+  margin-bottom: 70px;
+}
+
+/* =========================
+   BRAND
+========================= */
+.footer__brand h3 {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+
+  font-weight: 800;
+
+  color: #ffffff;
+
+  margin-bottom: 18px;
+
+  letter-spacing: -1px;
+
+  /* HILANGKAN GARIS BIRU */
+  border-left: none !important;
+  padding-left: 0 !important;
+}
+
+.footer__brand p {
+  max-width: 420px;
+
+  font-size: 1rem;
+
+  line-height: 1.9;
+
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* =========================
+   SECTION
+========================= */
+.footer__section h4 {
+  font-size: 1.2rem;
+
+  margin-bottom: 22px;
+
+  color: #ffffff;
+
+  font-weight: 700;
+
+  /* HILANGKAN GARIS BIRU */
+  border-left: none !important;
+  padding-left: 0 !important;
+}
+
+.footer__section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__section li {
+  font-size: 0.98rem;
+
+  margin-bottom: 16px;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* HOVER */
+.footer__section li:hover {
+  color: #ff4d4d;
+
+  transform: translateX(6px);
+}
+
+/* =========================
+   BOTTOM
+========================= */
+.footer__bottom {
+  position: relative;
+  z-index: 2;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  padding-top: 24px;
+
+  text-align: center;
+
+  font-size: 0.95rem;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  letter-spacing: 0.3px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1100px) {
+  .footer__container {
+    gap: 45px;
+  }
+}
+
+@media (max-width: 992px) {
+  .footer {
+    padding: 100px 6% 28px;
+  }
+
+  .footer__container {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .footer__brand p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 90px 5% 24px;
+  }
+
+  .footer__container {
+    gap: 36px;
+
+    margin-bottom: 55px;
+  }
+
+  .footer__brand h3 {
+    font-size: 2.4rem;
+  }
+
+  .footer__brand p {
+    font-size: 0.96rem;
+  }
+
+  .footer__section h4 {
+    margin-bottom: 18px;
+  }
+
+  .footer__section li {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 80px 4% 20px;
+  }
+
+  .footer__container {
+    gap: 30px;
+  }
+
+  .footer__brand h3 {
+    font-size: 2rem;
+  }
+
+  .footer__brand p {
+    font-size: 0.92rem;
+    line-height: 1.8;
+  }
+
+  .footer__section h4 {
+    font-size: 1.05rem;
+  }
+
+  .footer__section li {
+    font-size: 0.92rem;
+    margin-bottom: 14px;
+  }
+
+  .footer__bottom {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+}
+```

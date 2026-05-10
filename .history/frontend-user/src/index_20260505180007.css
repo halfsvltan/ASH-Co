@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🔥 RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 🔥 HILANGKAN SCROLL KANAN TOTAL */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+/* 🔥 EXTRA PROTECTION */
+img {
+  max-width: 100%;
+  height: auto;
+}

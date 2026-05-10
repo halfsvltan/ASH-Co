@@ -1,0 +1,169 @@
+/* ================= ROOT FIX ================= */
+:root {
+  --navbar-height: 70px;
+}
+
+/* ================= GLOBAL FIX (INI YANG HILANG SEBELUMNYA) ================= */
+body {
+  margin: 0;
+  padding-top: var(--navbar-height); /* 🔥 INI YANG HAPUS KETUTUP */
+  box-sizing: border-box;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--navbar-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 32px;
+  background: #ffffff;
+  z-index: 9999;
+
+  box-sizing: border-box;
+}
+
+/* ================= SCROLLED ================= */
+.navbar--scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ================= LEFT ================= */
+.navbar__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.back-icon {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.navbar__logo {
+  height: 42px;
+}
+
+/* ================= MENU ================= */
+.navbar__menu {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.navbar__menu li {
+  cursor: pointer;
+  font-weight: 600;
+  color: #111;
+}
+
+.navbar__menu li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ================= RIGHT ================= */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-cart {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.btn-login {
+  background-color: #b10000;
+  color: #fff;
+  border: none;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+/* ================= PROFILE ================= */
+.navbar-profile {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+}
+
+/* ================= HAMBURGER ================= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: #8b0000;
+}
+
+/* ================= MOBILE ================= */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .navbar__actions {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar__menu {
+    position: absolute;
+    top: var(--navbar-height);
+    left: 0;
+    right: 0;
+
+    background: #fff;
+    flex-direction: column;
+    padding: 24px;
+    display: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+
+  .navbar__menu.active {
+    display: flex;
+  }
+
+  .mobile-only {
+    display: flex;
+  }
+}
+
+/* ================= TRANSITION ================= */
+.navbar__menu li,
+.btn-login,
+.btn-cart {
+  transition: 0.2s ease;
+}

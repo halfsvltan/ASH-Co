@@ -1,0 +1,24 @@
+/* ================= HIDE SCROLLBAR TOTAL ================= */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Chrome, Edge, Safari */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+/* Optional: pastikan tidak ada ruang scrollbar */
+body {
+  -ms-overflow-style: none; /* IE/Edge lama */
+}

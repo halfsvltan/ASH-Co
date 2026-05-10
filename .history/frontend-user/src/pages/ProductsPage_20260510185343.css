@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================
+   PAGE
+========================= */
+.page {
+  min-height: 100vh;
+  padding-top: 220px;
+  background: linear-gradient(to bottom, #f8f9fb, #eef2f7);
+  overflow-x: hidden;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+  width: 100%;
+  max-width: 1700px;
+  margin: auto;
+  padding: 0 7% 100px;
+}
+
+/* =========================
+   TITLE
+========================= */
+.title {
+  text-align: center;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 14px;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.05rem;
+  color: #666;
+  margin-bottom: 80px;
+  line-height: 1.8;
+}
+
+/* =========================
+   GRID
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 42px;
+  align-items: stretch;
+}
+
+/* =========================
+   CARD
+========================= */
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 32px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+  transition: 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   IMAGE
+========================= */
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 390px;
+  overflow: hidden;
+  background: #fff; /* biar contain rapi */
+}
+
+.image-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.2), transparent 55%);
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* 🔥 FIX UTAMA: tidak crop */
+  padding: 10px;        /* biar ada jarak rapi */
+  transition: transform 0.55s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+/* =========================
+   INFO
+========================= */
+.info {
+  padding: 32px;
+}
+
+.info h3 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 14px;
+}
+
+.info p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.9;
+  margin-bottom: 28px;
+}
+
+/* =========================
+   BOTTOM
+========================= */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+/* =========================
+   PRICE
+========================= */
+.price {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #8b0000;
+}
+
+/* =========================
+   BUTTON
+========================= */
+.btn {
+  border: none;
+  padding: 14px 26px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #8b0000, #b30000);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  }
+
+  .image-wrapper {
+    height: 340px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .image-wrapper {
+    height: 300px;
+  }
+
+  .info {
+    padding: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-wrapper {
+    height: 260px;
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

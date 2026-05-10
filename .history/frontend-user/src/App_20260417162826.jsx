@@ -1,0 +1,143 @@
+import {
+  createBrowserRouter,
+  RouterProvider,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+
+import { useEffect } from "react";
+
+import Navbar from "./components/Navbar";
+import Hero from "./sections/Hero";
+import About from "./sections/About";
+import Products from "./sections/Products";
+import Services from "./sections/Services";
+import Clients from "./sections/Clients";
+import Footer from "./components/Footer";
+import UserLogin from "./pages/user/UserLogin";
+import UserRegister from "./pages/user/UserRegister";
+import UserProfile from "./pages/user/UserProfile";
+import EditProfile from "./pages/user/EditProfile";
+import ProtectedRoute from "./routes/ProtectedRoute";
+
+/* ================= SCROLL TO TOP (WAJIB) ================= */
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+/* ================= HOME (SCROLL SECTION) ================= */
+function Home() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const el = document.getElementById(location.state.scrollTo);
+      el?.scrollIntoView({ behavior: "smooth" });
+
+      // 🔥 hapus state biar gak nyangkut
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+  }, [location, navigate]);
+
+  return (
+    <>
+      <Hero />
+      <Products />
+      <Services />
+      <Clients />
+    </>
+  );
+}
+
+/* ================= ROUTER ================= */
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: (
+        <>
+          <ScrollToTop />
+          <Navbar />
+          <Home />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/about",
+      element: (
+        <>
+          <ScrollToTop />
+          <Navbar />
+          <About />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/userlogin",
+      element: (
+        <>
+          <ScrollToTop />
+          <Navbar />
+          <UserLogin />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/userregister",
+      element: (
+        <>
+          <ScrollToTop />
+          <Navbar />
+          <UserRegister />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/profile",
+      element: (
+        <>
+          <ScrollToTop />
+          <Navbar />
+          <ProtectedRoute>
+            <UserProfile />
+          </ProtectedRoute>
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/editprofile",
+      element: (
+        <>
+          <ScrollToTop />
+          <Navbar />
+          <ProtectedRoute>
+            <EditProfile />
+          </ProtectedRoute>
+          <Footer />
+        </>
+      ),
+    },
+  ],
+  {
+    future: {
+      v7_startTransition: true, // optional (hilangin warning)
+    },
+  }
+);
+
+/* ================= APP ================= */
+export default function App() {
+  return <RouterProvider router={router} />;
+}

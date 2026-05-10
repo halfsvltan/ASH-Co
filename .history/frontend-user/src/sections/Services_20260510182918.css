@@ -1,0 +1,299 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.services {
+  padding: 130px 7%;
+  background: linear-gradient(
+    to bottom,
+    #ffffff,
+    #f8f8f8
+  );
+
+  overflow: hidden;
+}
+
+/* TITLE */
+.section-title {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  text-align: center;
+  margin-bottom: 70px;
+
+  color: #8b0000;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+/* GRID */
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 36px;
+  align-items: stretch;
+}
+
+/* CARD */
+.service-card {
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  border-radius: 30px;
+  padding: 42px 34px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  overflow: hidden;
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.06),
+    0 6px 18px rgba(0, 0, 0, 0.04);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+
+  border: none;
+}
+
+/* GLOW EFFECT */
+.service-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(139, 0, 0, 0.04),
+    transparent
+  );
+
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-card:hover {
+  transform: translateY(-12px);
+
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.10),
+    0 10px 30px rgba(139, 0, 0, 0.12);
+}
+
+/* ICON */
+.service-icon {
+  width: 88px;
+  height: 88px;
+
+  margin: 0 auto 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 24px;
+
+  font-size: 2.5rem;
+
+  background: linear-gradient(
+    135deg,
+    #8b0000,
+    #b30000
+  );
+
+  box-shadow:
+    0 12px 28px rgba(139, 0, 0, 0.22);
+
+  color: #fff;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.08) rotate(-4deg);
+
+  box-shadow:
+    0 18px 38px rgba(139, 0, 0, 0.30);
+}
+
+/* TEXT */
+.service-card h3 {
+  font-size: 1.7rem;
+  font-weight: 800;
+
+  color: #8b0000;
+
+  margin-bottom: 16px;
+
+  text-align: center;
+
+  /* HILANGKAN GARIS BIRU */
+  border-left: none !important;
+  padding-left: 0 !important;
+}
+
+.service-card p {
+  font-size: 1rem;
+  line-height: 1.9;
+
+  color: #666;
+
+  text-align: center;
+
+  margin-bottom: 32px;
+}
+
+/* BUTTON */
+.btn-service {
+  border: none;
+
+  padding: 16px 22px;
+
+  border-radius: 16px;
+
+  background: linear-gradient(
+    135deg,
+    #8b0000,
+    #b30000
+  );
+
+  color: #ffffff;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+
+  box-shadow:
+    0 12px 26px rgba(139, 0, 0, 0.22);
+
+  outline: none;
+}
+
+.btn-service:hover {
+  transform: translateY(-4px);
+
+  background: linear-gradient(
+    135deg,
+    #ff4d4d,
+    #ff7a7a
+  );
+
+  box-shadow:
+    0 18px 36px rgba(255, 77, 77, 0.28);
+}
+
+.btn-service:focus,
+.btn-service:active {
+  outline: none;
+  border: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .services {
+    padding: 110px 6%;
+  }
+
+  .services__grid {
+    gap: 28px;
+  }
+
+  .service-card {
+    padding: 38px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 100px 5%;
+  }
+
+  .services__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .service-card {
+    border-radius: 26px;
+  }
+
+  .service-icon {
+    width: 76px;
+    height: 76px;
+
+    font-size: 2rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .service-card p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+}
+
+@media (max-width: 480px) {
+  .services {
+    padding: 90px 4%;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+  }
+
+  .service-card {
+    padding: 32px 24px;
+    border-radius: 24px;
+  }
+
+  .service-icon {
+    width: 70px;
+    height: 70px;
+
+    border-radius: 20px;
+
+    font-size: 1.8rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+  }
+
+  .btn-service {
+    width: 100%;
+    padding: 15px 20px;
+
+    border-radius: 14px;
+
+    font-size: 0.95rem;
+  }
+}

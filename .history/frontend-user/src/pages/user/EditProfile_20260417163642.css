@@ -1,0 +1,99 @@
+.edit-profile {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 120px;
+}
+
+/* ================= CARD ================= */
+.edit-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.edit-card h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ================= FORM ================= */
+.edit-form .form-group {
+  margin-bottom: 14px;
+}
+
+.edit-form label {
+  font-size: 13px;
+  color: #555;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.edit-form input,
+.edit-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.edit-form input:focus,
+.edit-form textarea:focus {
+  border-color: #b10000;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(177, 0, 0, 0.1);
+}
+
+.edit-form textarea {
+  resize: none;
+  height: 80px;
+}
+
+/* ================= BUTTON SAVE ================= */
+.btn-save {
+  width: 100%;
+  margin-top: 10px;
+  height: 40px;
+  background: #b10000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-save:hover {
+  background: #8f0000;
+}
+
+/* ================= BUTTON CANCEL ================= */
+.btn-cancel {
+  width: 100%;
+  margin-top: 10px;
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+/* ================= LOADING ================= */
+.edit-loading {
+  margin-top: 120px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}

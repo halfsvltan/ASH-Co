@@ -1,0 +1,167 @@
+/* ================= PAGE ================= */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start; /* supaya turun dari navbar */
+  justify-content: center;
+  background: #f7f7f7;
+  padding: 100px 20px 20px; /* tambah jarak atas */
+}
+
+/* ================= CARD ================= */
+.login-card {
+  width: 100%;
+  max-width: 340px; /* sedikit lebih kecil dari 380px */
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 22px 20px; /* diperkecil */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* ================= TEXT ================= */
+.login-title {
+  font-size: 22px; /* sedikit lebih kecil */
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.login-subtitle {
+  font-size: 13px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+/* ================= FORM ================= */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* sedikit lebih rapat */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.form-group input {
+  height: 38px; /* dari 42px */
+  padding: 0 10px;
+  border-radius: 7px;
+  border: 1px solid #ddd;
+  font-size: 13px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #b10000;
+}
+
+/* ================= PASSWORD ================= */
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ================= LOGIN BUTTON ================= */
+.btn-login-main {
+  margin-top: 6px;
+  height: 40px; /* sedikit lebih kecil */
+  background: #b10000;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn-login-main:hover {
+  background: #8b0000;
+}
+
+/* ================= DIVIDER ================= */
+.login-divider {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+}
+
+.login-divider span {
+  font-size: 11px;
+  color: #777;
+  padding: 0 8px;
+}
+
+/* ================= GOOGLE BUTTON ================= */
+.btn-google {
+  width: 100%;
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-google:hover {
+  background: #f3f3f3;
+}
+
+.google-icon {
+  background: #b10000;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+/* ================= REGISTER ================= */
+.register-text {
+  margin-top: 12px;
+  font-size: 12px;
+  text-align: center;
+  color: #555;
+}
+
+.register-text span {
+  color: #b10000;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.register-text span:hover {
+  text-decoration: underline;
+}

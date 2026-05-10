@@ -1,0 +1,224 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 32px;
+  background: #ffffff;
+  z-index: 1000;
+
+  box-sizing: border-box; 
+}
+
+/* ================= SCROLLED ================= */
+.navbar--scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ================= LEFT ================= */
+.navbar__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.back-icon {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.navbar__logo {
+  height: 42px;
+}
+
+/* ================= MENU (CENTER) ================= */
+.navbar__menu {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.navbar__menu li {
+  cursor: pointer;
+  font-weight: 600;
+  color: #111;
+}
+
+.navbar__menu li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbar__menu li:hover {
+  color: #0a002c;
+}
+
+.navbar--scrolled .navbar__menu li {
+  color: #b10000;
+}
+
+.navbar--scrolled .navbar__menu li:hover {
+  color: rgb(255, 0, 0);
+}
+
+/* ================= RIGHT ACTION ================= */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-cart {
+  background: none;
+  border: none;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn-login {
+  background-color: #b10000;
+  color: #ffffff;
+  border: none;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn-login:hover {
+  color: #520000;
+}
+
+/* ================= PROFILE AVATAR ================= */
+.navbar-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+}
+
+.navbar-profile img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ================= HAMBURGER ================= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background-color: #8b0000;
+}
+
+/* ================= MOBILE ================= */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .navbar__actions {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar__menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+
+    background-color: #ffffff;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    display: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar__menu.active {
+    display: flex;
+  }
+
+  .navbar__menu li {
+    color: #000;
+  }
+
+  .mobile-only {
+    display: flex;
+  }
+
+  .login-mobile {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  /* MOBILE PROFILE */
+  .mobile-profile a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .mobile-profile img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+/* ================= TRANSITION ================= */
+.navbar__menu li,
+.navbar__menu li a,
+.btn-login,
+.btn-cart {
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+/* ================= FORCE MOBILE CART ================= */
+/* DESKTOP: PASTI SEMBUNYI */
+@media (min-width: 769px) {
+  .mobile-only,
+  .mobile-cart {
+    display: none !important;
+  }
+}

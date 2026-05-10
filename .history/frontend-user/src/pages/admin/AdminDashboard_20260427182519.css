@@ -1,0 +1,189 @@
+/* ================= GLOBAL ================= */
+.admin-container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: #e2e8f0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ================= HEADER ================= */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.admin-header h2 {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.btn-logout {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: white;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-logout:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* ================= SECTION ================= */
+h3 {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  border-left: 4px solid #38bdf8;
+  padding-left: 10px;
+}
+
+/* ================= TABLE ================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th {
+  text-align: left;
+  background: rgba(255,255,255,0.05);
+  font-weight: 500;
+  font-size: 14px;
+  padding: 12px;
+}
+
+td {
+  padding: 12px;
+  font-size: 14px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+tr:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+/* ================= BUTTON ================= */
+button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* tombol spesifik */
+button:nth-child(1) {
+  background: #3b82f6;
+  color: white;
+}
+
+button:nth-child(2) {
+  background: #ef4444;
+  color: white;
+}
+
+/* ================= FORM ================= */
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  background: rgba(255,255,255,0.03);
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.form input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.05);
+  color: white;
+  flex: 1;
+  min-width: 150px;
+}
+
+.form input::placeholder {
+  color: #94a3b8;
+}
+
+.form button {
+  background: linear-gradient(135deg, #22c55e, #15803d);
+  color: white;
+  font-weight: bold;
+}
+
+/* ================= IMAGE ================= */
+img {
+  border-radius: 8px;
+}
+
+/* ================= MODAL ================= */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(2,6,23,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: #020617;
+  padding: 25px;
+  border-radius: 16px;
+  width: 350px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content h3 {
+  margin-bottom: 15px;
+}
+
+.modal-content input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.05);
+  color: white;
+}
+
+.modal-content button {
+  width: 100%;
+  margin-top: 5px;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

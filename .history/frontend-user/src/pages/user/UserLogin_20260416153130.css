@@ -1,0 +1,156 @@
+/* ================= PAGE ================= */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f7f7;
+  padding: 10px; /* lebih kecil */
+}
+
+/* ================= CARD ================= */
+.login-card {
+  width: 100%;
+  max-width: 340px; /* lebih kecil */
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px 18px; /* diperkecil */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* ================= TEXT ================= */
+.login-title {
+  font-size: 20px; /* dari 24 → 20 */
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.login-subtitle {
+  font-size: 12px; /* lebih kecil */
+  color: #555;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* ================= FORM ================= */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* dari 16 → 12 */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* lebih rapat */
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ================= INPUT ================= */
+.form-group input {
+  height: 36px; /* dari 42 → 36 */
+  padding: 0 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 13px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #b10000;
+}
+
+/* ================= PASSWORD ================= */
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ================= LOGIN BUTTON ================= */
+.btn-login-main {
+  margin-top: 6px;
+  height: 38px; /* lebih kecil */
+  background: #b10000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn-login-main:hover {
+  background: #8b0000;
+}
+
+/* ================= DIVIDER ================= */
+.login-divider {
+  display: flex;
+  align-items: center;
+  margin: 14px 0; /* dari 20 → 14 */
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+}
+
+.login-divider span {
+  font-size: 11px;
+  color: #777;
+  padding: 0 8px;
+}
+
+/* ================= GOOGLE BUTTON ================= */
+.btn-google {
+  width: 100%;
+  height: 38px; /* lebih kecil */
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-google:hover {
+  background: #f3f3f3;
+}
+
+.google-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 11px;
+}
+
+/* ================= BACK ================= */
+.btn-back {
+  margin-top: 12px;
+  font-size: 12px;
+}
+
+/* ================= REGISTER ================= */
+.register-text {
+  margin-top: 10px;
+  font-size: 12px;
+}

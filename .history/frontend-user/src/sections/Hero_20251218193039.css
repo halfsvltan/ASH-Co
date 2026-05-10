@@ -1,0 +1,97 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* SLIDE */
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.hero__slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* OVERLAY */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* CONTENT */
+.hero__content {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  max-width: 520px;
+  color: #ffffff;
+  z-index: 2;
+}
+
+.hero__content h1 {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.hero__content p {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  color: #e0e0e0;
+}
+
+.hero__content button {
+  padding: 12px 28px;
+  border: none;
+  background: #8b0000;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.hero__content button:hover {
+  background: #6e0000;
+}
+
+/* NAV BUTTON */
+.hero__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px 14px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.hero__nav.left {
+  left: 20px;
+}
+
+.hero__nav.right {
+  right: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero__content {
+    left: 6%;
+    right: 6%;
+  }
+
+  .hero__content h1 {
+    font-size: 2rem;
+  }
+}

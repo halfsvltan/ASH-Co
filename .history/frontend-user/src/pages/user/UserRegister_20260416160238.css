@@ -1,0 +1,176 @@
+/* ================= PAGE ================= */
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f7f7;
+  padding: 120px 20px 40px; /* jarak navbar */
+}
+
+/* ================= CARD ================= */
+.register-card {
+  width: 100%;
+  max-width: 380px; /* sama seperti login */
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px 24px; /* sama seperti login */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ================= TEXT ================= */
+.register-title {
+  font-size: 24px; /* sama login */
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.register-subtitle {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* ================= FORM ================= */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ================= INPUT ================= */
+.register-card input {
+  height: 42px; /* sama login */
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.register-card input:focus {
+  outline: none;
+  border-color: #b10000; /* warna utama */
+}
+
+/* ================= PASSWORD ================= */
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* ================= PASSWORD CHECKLIST ================= */
+.password-checklist {
+  margin-top: 8px;
+  padding-left: 0;
+  list-style: none;
+  font-size: 12px;
+}
+
+.password-checklist li {
+  color: #777;
+  margin-bottom: 4px;
+}
+
+.password-checklist li.ok {
+  color: #15803d;
+  font-weight: 600;
+}
+
+/* ================= ERROR ================= */
+.form-error {
+  background: #fee2e2;
+  color: #94000a;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+/* ================= SUCCESS ================= */
+.form-success {
+  background: #dcfce7;
+  color: #166534;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+/* ================= BUTTON ================= */
+.btn-register-main {
+  margin-top: 8px;
+  height: 44px; /* sama login */
+  background: #b10000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-register-main:hover {
+  background: #8b0000;
+}
+
+.btn-register-main:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+/* ================= LOGIN LINK ================= */
+.login-text {
+  margin-top: 14px;
+  font-size: 13px;
+  text-align: center;
+  color: #555;
+}
+
+.login-text span {
+  color: #b10000;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.login-text span:hover {
+  text-decoration: underline;
+}
+
+/* ================= SUCCESS EXTRA ================= */
+.email-info {
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.btn-back-login {
+  margin-top: 12px;
+  width: 100%;
+  height: 44px;
+  border-radius: 8px;
+  border: none;
+  background: #000;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
