@@ -1,0 +1,219 @@
+.cart-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding: 120px 20px 40px; 
+  box-sizing: border-box;
+}
+
+.cart-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.cart-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #111;
+}
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* =========================
+   CARD
+========================= */
+.cart-card {
+  width: 100%;
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* =========================
+   CHECKBOX
+========================= */
+.cart-card input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* =========================
+   IMAGE
+========================= */
+.cart-image {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #eee;
+}
+
+/* =========================
+   INFO
+========================= */
+.cart-info {
+  flex: 1;
+}
+
+.cart-info h3 {
+  margin: 0;
+  font-size: 22px;
+  color: #111;
+}
+
+.cart-info p {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ff4d30;
+}
+
+/* =========================
+   QTY
+========================= */
+.qty-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.qty-box button {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 8px;
+  background: #111;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.qty-box button:hover {
+  opacity: 0.85;
+}
+
+.qty-box span {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* =========================
+   SUBTOTAL
+========================= */
+.subtotal {
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.subtotal p {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+/* =========================
+   DELETE BUTTON
+========================= */
+.delete-btn {
+  border: none;
+  background: crimson;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  opacity: 0.85;
+}
+
+/* =========================
+   CHECKOUT BOX
+========================= */
+.checkout-box {
+  margin-top: 35px;
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout-box h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.checkout-box h1 {
+  margin: 0;
+  color: #ff4d30;
+  font-size: 34px;
+}
+
+/* =========================
+   CHECKOUT BUTTON
+========================= */
+.checkout-btn {
+  border: none;
+  background: #111;
+  color: white;
+  padding: 16px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.checkout-btn:hover {
+  opacity: 0.9;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+  .cart-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-image {
+    width: 100%;
+    height: 220px;
+  }
+
+  .subtotal {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .checkout-box {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+}

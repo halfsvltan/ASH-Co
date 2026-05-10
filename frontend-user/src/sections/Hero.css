@@ -1,0 +1,228 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  margin-top: 70px;
+  overflow: hidden;
+}
+
+/* SLIDE */
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: all 1s ease;
+}
+
+.hero__slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+/* OVERLAY */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.35)
+  );
+}
+
+/* CONTENT */
+.hero__content {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  right: 8%;
+  transform: translateY(-50%);
+  max-width: 650px;
+  z-index: 2;
+  color: #fff;
+
+  animation: fadeUp 1s ease;
+}
+
+.hero__badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(139, 0, 0, 0.9);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+.hero__content h1 {
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.hero__content p {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 95%;
+}
+
+/* DOTS */
+.hero__dots {
+  position: absolute;
+  bottom: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 5;
+}
+
+.hero__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero__dot.active {
+  width: 34px;
+  border-radius: 999px;
+  background: #8b0000;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 992px) {
+  .hero {
+    height: 92vh;
+  }
+
+  .hero__content {
+    left: 7%;
+    right: 7%;
+    max-width: 90%;
+  }
+
+  .hero__content p {
+    max-width: 100%;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .hero {
+    height: 88vh;
+    margin-top: 70px;
+  }
+
+  .hero__slide {
+    background-position: center center;
+  }
+
+  .hero__overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.82),
+      rgba(0, 0, 0, 0.4)
+    );
+  }
+
+  .hero__content {
+    top: auto;
+    bottom: 90px;
+    left: 24px;
+    right: 24px;
+    transform: none;
+    max-width: 100%;
+  }
+
+  .hero__badge {
+    font-size: 0.68rem;
+    padding: 7px 14px;
+    margin-bottom: 16px;
+    letter-spacing: 1.5px;
+  }
+
+  .hero__content h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+
+  .hero__content p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 100%;
+  }
+
+  .hero__dots {
+    bottom: 28px;
+    gap: 10px;
+  }
+
+  .hero__dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .hero__dot.active {
+    width: 28px;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+@media (max-width: 480px) {
+  .hero {
+    height: 84vh;
+  }
+
+  .hero__content {
+    left: 20px;
+    right: 20px;
+    bottom: 80px;
+  }
+
+  .hero__content h1 {
+    font-size: 1.7rem;
+  }
+
+  .hero__content p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .hero__badge {
+    font-size: 0.62rem;
+    padding: 6px 12px;
+  }
+}
+
+/* FIX BLUE EFFECT */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
