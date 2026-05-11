@@ -23,7 +23,7 @@ export default function AuthCallback() {
           .from("profiles")
           .select("*")
           .eq("id", user.id)
-          .maybeSingle(); // ✅ FIX (AMAN)
+          .maybeSingle(); //
 
         // ================= AUTO CREATE PROFILE =================
         if (!profile) {
@@ -31,7 +31,7 @@ export default function AuthCallback() {
 
           const { error: insertError } = await supabase
             .from("profiles")
-            .upsert({ // ✅ FIX (ANTI RLS)
+            .upsert({ //
               id: user.id,
               email: user.email,
               username:
@@ -43,7 +43,7 @@ export default function AuthCallback() {
           if (insertError) {
             console.error("Gagal insert profile:", insertError);
 
-            await supabase.auth.signOut(); // ✅ FIX ghost session
+            await supabase.auth.signOut(); //
             navigate("/userlogin");
             return;
           }
@@ -60,7 +60,7 @@ export default function AuthCallback() {
 
         // ================= GUARD PROFILE =================
         if (!profile) {
-          await supabase.auth.signOut(); // ✅ FIX ghost session
+          await supabase.auth.signOut(); // 
           navigate("/userlogin");
           return;
         }

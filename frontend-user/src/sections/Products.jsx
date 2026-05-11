@@ -116,7 +116,7 @@ function ProductCard({ data }) {
     observer.observe(cardRef.current);
 
     return () => {
-      observer.disconnect(); // ✅ FIX utama (anti error)
+      observer.disconnect(); //
     };
   }, []);
 

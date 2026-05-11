@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 import "./CartPage.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function CartPage() {
 
   const [cartItems, setCartItems] = useState([]);
@@ -32,7 +34,7 @@ export default function CartPage() {
       }
 
       const response = await fetch(
-        `http://localhost:5000/api/cart/${user.id}`
+        `${API_URL}/api/cart/${user.id}`
       );
 
       const result = await response.json();
@@ -77,7 +79,7 @@ export default function CartPage() {
     try {
 
       const response = await fetch(
-        "http://localhost:5000/api/cart/update",
+        `${API_URL}/api/cart/update`,
         {
           method: "PUT",
 
@@ -138,7 +140,7 @@ export default function CartPage() {
     try {
 
       const response = await fetch(
-        `http://localhost:5000/api/cart/delete/${cartId}`,
+        `${API_URL}/api/cart/delete/${cartId}`,
         {
           method: "DELETE",
         }

@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 import "./ProductsPage.css";
 
-const API_URL = "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function ProductsPage() {
+
   const [products, setProducts] = useState([]);
   const [loadingId, setLoadingId] = useState(null);
 
@@ -16,7 +17,9 @@ export default function ProductsPage() {
   }, []);
 
   const fetchProducts = async () => {
+
     try {
+
       const { data, error } = await supabase
         .from("products")
         .select("*")
@@ -99,7 +102,9 @@ export default function ProductsPage() {
       let result = {};
 
       try {
+
         result = await response.json();
+
       } catch (jsonErr) {
 
         console.log("JSON ERROR:", jsonErr);
