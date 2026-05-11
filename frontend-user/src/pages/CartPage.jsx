@@ -140,7 +140,7 @@ export default function CartPage() {
     try {
 
       const response = await fetch(
-        `${API_URL}/api/cart/delete/${cartId}`,
+        `${API_URL}/api/cart/${cartId}`,
         {
           method: "DELETE",
         }
@@ -148,7 +148,7 @@ export default function CartPage() {
 
       const result = await response.json();
 
-      console.log(result);
+      console.log("DELETE RESULT:", result);
 
       if (!response.ok) {
         alert(result.message);
@@ -161,6 +161,8 @@ export default function CartPage() {
             item.id !== cartId
         )
       );
+
+      alert("Item berhasil dihapus");
 
     } catch (err) {
 
