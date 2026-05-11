@@ -4,9 +4,8 @@
   "type": "module",
   "description": "",
   "main": "server.js",
-
   "dependencies": {
-    "@supabase/supabase-js": "^2.89.0",
+    "@supabase/supabase-js": "^2.105.4",
     "accepts": "^2.0.0",
     "body-parser": "^2.2.1",
     "bytes": "^3.1.2",
@@ -16,10 +15,10 @@
     "content-type": "^1.0.5",
     "cookie": "^0.7.2",
     "cookie-signature": "^1.2.2",
-    "cors": "^2.8.5",
+    "cors": "^2.8.6",
     "debug": "^4.4.3",
     "depd": "^2.0.0",
-    "dotenv": "^17.2.3",
+    "dotenv": "^17.4.2",
     "dunder-proto": "^1.0.1",
     "ee-first": "^1.1.1",
     "encodeurl": "^2.0.0",
@@ -80,13 +79,11 @@
     "wrappy": "^1.0.2",
     "ws": "^8.18.3"
   },
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "node server.js"
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC"

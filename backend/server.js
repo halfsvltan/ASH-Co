@@ -1,5 +1,3 @@
-// server.js
-
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -10,20 +8,8 @@ dotenv.config();
 
 const app = express();
 
-/* =========================
-   DEBUG ENV
-========================= */
 console.log("SUPABASE URL:", process.env.SUPABASE_URL);
-console.log(
-  "SERVICE ROLE:",
-  process.env.SUPABASE_SERVICE_ROLE_KEY
-    ? "ADA"
-    : "TIDAK ADA"
-);
 
-/* =========================
-   MIDDLEWARE
-========================= */
 app.use(
   cors({
     origin: "*",
@@ -34,9 +20,6 @@ app.use(
 
 app.use(express.json());
 
-/* =========================
-   TEST API
-========================= */
 app.get("/test", (req, res) => {
   res.json({
     success: true,
@@ -44,14 +27,8 @@ app.get("/test", (req, res) => {
   });
 });
 
-/* =========================
-   ROUTES
-========================= */
 app.use("/api/cart", cartRoutes);
 
-/* =========================
-   ROOT
-========================= */
 app.get("/", (req, res) => {
   res.json({
     status: "OK",
@@ -59,9 +36,6 @@ app.get("/", (req, res) => {
   });
 });
 
-/* =========================
-   ERROR HANDLER
-========================= */
 app.use((err, req, res, next) => {
   console.log("GLOBAL ERROR:", err);
 
@@ -71,13 +45,4 @@ app.use((err, req, res, next) => {
   });
 });
 
-/* =========================
-   SERVER
-========================= */
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(
-    `✅ Backend running on http://localhost:${PORT}`
-  );
-});
+export default app;
