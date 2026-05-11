@@ -24,7 +24,7 @@ router.get("/test", (req, res) => {
 /* =========================
    GET CART
 ========================= */
-router.get("/:userId", getCart);
+router.get("/user/:userId", getCart);
 
 /* =========================
    ADD TO CART
@@ -39,6 +39,6 @@ router.put("/update", updateQty);
 /* =========================
    DELETE CART ITEM
 ========================= */
-router.delete("/:cartId", deleteCartItem);
+router.delete("/delete/:cartId", deleteCartItem);
 
 export default router;
