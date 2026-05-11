@@ -7,6 +7,7 @@ import defaultAvatar from "../../assets/images/default-avatar.jpg";
 const DEFAULT_AVATAR = defaultAvatar;
 
 const resolveAvatar = (avatarUrl) => {
+
   if (!avatarUrl) return DEFAULT_AVATAR;
 
   if (
@@ -20,24 +21,35 @@ const resolveAvatar = (avatarUrl) => {
 };
 
 export default function UserProfile() {
+
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
+
   const navigate = useNavigate();
 
+  /* =========================
+     FETCH PROFILE
+  ========================= */
   useEffect(() => {
+
     const fetchProfile = async () => {
+
       try {
+
         const {
           data: { user },
         } = await supabase.auth.getUser();
 
+        // BELUM LOGIN
         if (!user) {
-          navigate("/userlogin");
+          navigate("/");
           return;
         }
 
-        // 🔥 AMBIL PROFILE (AMAN)
+        /* =========================
+           GET PROFILE
+        ========================= */
         let { data, error } = await supabase
           .from("profiles")
           .select("*")
@@ -46,8 +58,11 @@ export default function UserProfile() {
 
         if (error) throw error;
 
-        // 🔥 AUTO CREATE PROFILE (INI YANG FIX ERROR LU)
+        /* =========================
+           AUTO CREATE PROFILE
+        ========================= */
         if (!data) {
+
           console.log("Profile belum ada, create...");
 
           const { error: insertError } = await supabase
@@ -55,15 +70,19 @@ export default function UserProfile() {
             .upsert({
               id: user.id,
               email: user.email,
+
               username:
                 user.user_metadata?.username ||
                 user.email.split("@")[0],
+
               role: "user",
             });
 
-          if (insertError) throw insertError;
+          if (insertError) {
+            throw insertError;
+          }
 
-          // ambil ulang
+          // ambil ulang profile
           const res = await supabase
             .from("profiles")
             .select("*")
@@ -73,152 +92,330 @@ export default function UserProfile() {
           data = res.data;
         }
 
-        // 🔥 CEK ADMIN
+        /* =========================
+           REDIRECT ADMIN
+        ========================= */
         if (data?.role === "admin") {
           navigate("/admin/dashboard");
           return;
         }
 
-        // 🔥 ANTI NULL CRASH
+        /* =========================
+           SET PROFILE
+        ========================= */
         const finalProfile = data || {};
 
         setProfile({
-          username: finalProfile.username || user.email.split("@")[0],
+          username:
+            finalProfile.username ||
+            user.email.split("@")[0],
+
           full_name:
             finalProfile.full_name ||
             user.user_metadata?.full_name ||
             user.email.split("@")[0],
+
           email: user.email,
-          phone: finalProfile.phone || "-",
-          address: finalProfile.address || "-",
-          avatar_url: resolveAvatar(finalProfile.avatar_url),
+
+          phone:
+            finalProfile.phone || "-",
+
+          address:
+            finalProfile.address || "-",
+
+          avatar_url:
+            resolveAvatar(
+              finalProfile.avatar_url
+            ),
         });
+
       } catch (err) {
-        console.error("PROFILE ERROR:", err);
-        alert(err.message || "Gagal memuat profile");
+
+        console.error(
+          "PROFILE ERROR:",
+          err
+        );
+
+        alert(
+          err.message ||
+          "Gagal memuat profile"
+        );
+
       } finally {
+
         setLoading(false);
       }
     };
 
     fetchProfile();
 
-    const { data: listener } = supabase.auth.onAuthStateChange(
-      (_event, session) => {
-        if (!session) {
-          navigate("/userlogin");
+    /* =========================
+       AUTH LISTENER
+    ========================= */
+    const { data: listener } =
+      supabase.auth.onAuthStateChange(
+        (_event, session) => {
+
+          // jika logout
+          if (!session) {
+            navigate("/");
+          }
         }
-      }
-    );
+      );
 
     return () => {
       listener.subscription.unsubscribe();
     };
+
   }, [navigate]);
 
-  const uploadAvatar = async (file) => {
+  /* =========================
+     UPLOAD AVATAR
+  ========================= */
+  const uploadAvatar = async (
+    file
+  ) => {
+
     if (!file) return;
 
     try {
+
       setUploading(true);
 
       const {
         data: { user },
       } = await supabase.auth.getUser();
 
-      if (!user) throw new Error("User tidak ditemukan");
+      if (!user) {
+        throw new Error(
+          "User tidak ditemukan"
+        );
+      }
 
-      const ext = file.name.split(".").pop();
-      const fileName = `${user.id}-${Date.now()}.${ext}`;
+      const ext =
+        file.name
+          .split(".")
+          .pop();
 
-      const { error: uploadError } = await supabase.storage
+      const fileName =
+        `${user.id}-${Date.now()}.${ext}`;
+
+      /* =========================
+         UPLOAD STORAGE
+      ========================= */
+      const {
+        error: uploadError,
+      } = await supabase.storage
         .from("avatars")
         .upload(fileName, file);
 
-      if (uploadError) throw uploadError;
+      if (uploadError) {
+        throw uploadError;
+      }
 
-      const { data: publicUrlData } = supabase.storage
+      /* =========================
+         GET PUBLIC URL
+      ========================= */
+      const {
+        data: publicUrlData,
+      } = supabase.storage
         .from("avatars")
         .getPublicUrl(fileName);
 
-      const publicUrl = publicUrlData.publicUrl;
+      const publicUrl =
+        publicUrlData.publicUrl;
 
-      const { error: updateError } = await supabase
+      /* =========================
+         UPDATE PROFILE
+      ========================= */
+      const {
+        error: updateError,
+      } = await supabase
         .from("profiles")
-        .update({ avatar_url: publicUrl })
+        .update({
+          avatar_url: publicUrl,
+        })
         .eq("id", user.id);
 
-      if (updateError) throw updateError;
+      if (updateError) {
+        throw updateError;
+      }
 
+      /* =========================
+         UPDATE STATE
+      ========================= */
       setProfile((prev) => ({
         ...prev,
         avatar_url: publicUrl,
       }));
+
+      alert(
+        "Avatar berhasil diupdate"
+      );
+
     } catch (err) {
-      console.error("UPLOAD ERROR:", err);
-      alert(err.message || "Gagal upload avatar");
+
+      console.error(
+        "UPLOAD ERROR:",
+        err
+      );
+
+      alert(
+        err.message ||
+        "Gagal upload avatar"
+      );
+
     } finally {
+
       setUploading(false);
     }
   };
 
+  /* =========================
+     LOGOUT
+  ========================= */
   const handleLogout = async () => {
-    await supabase.auth.signOut();
-    navigate("/userlogin");
+
+    try {
+
+      await supabase.auth.signOut();
+
+      // redirect homepage
+      navigate("/");
+
+    } catch (err) {
+
+      console.error(
+        "LOGOUT ERROR:",
+        err
+      );
+
+      alert("Gagal logout");
+    }
   };
 
-  if (loading) return <p className="profile-loading">Loading...</p>;
+  /* =========================
+     LOADING
+  ========================= */
+  if (loading) {
+    return (
+      <p className="profile-loading">
+        Loading...
+      </p>
+    );
+  }
+
   if (!profile) return null;
 
   return (
     <div className="user-profile">
+
       <div className="profile-card">
+
+        {/* =========================
+            HEADER
+        ========================= */}
         <div className="profile-header">
+
           <label className="avatar-wrapper">
+
             <img
               src={profile.avatar_url}
               alt="Avatar"
+
               onError={(e) => {
+
                 e.currentTarget.onerror = null;
-                e.currentTarget.src = DEFAULT_AVATAR;
+
+                e.currentTarget.src =
+                  DEFAULT_AVATAR;
               }}
             />
+
             <input
               type="file"
               accept="image/*"
               hidden
-              onChange={(e) => uploadAvatar(e.target.files[0])}
+
+              onChange={(e) =>
+                uploadAvatar(
+                  e.target.files[0]
+                )
+              }
             />
+
             <span className="avatar-edit">
-              {uploading ? "..." : "✏️"}
+
+              {
+                uploading
+                  ? "..."
+                  : "✏️"
+              }
+
             </span>
           </label>
 
           <div className="profile-text">
-            <h2>{profile.full_name}</h2>
-            <p>@{profile.username}</p>
-            <p>{profile.email}</p>
+
+            <h2>
+              {profile.full_name}
+            </h2>
+
+            <p>
+              @{profile.username}
+            </p>
+
+            <p>
+              {profile.email}
+            </p>
+
           </div>
         </div>
 
+        {/* =========================
+            INFO
+        ========================= */}
         <div className="profile-info">
+
           <div>
-            <span>Nomor Telepon</span>
-            <p>{profile.phone}</p>
+            <span>
+              Nomor Telepon
+            </span>
+
+            <p>
+              {profile.phone}
+            </p>
           </div>
+
           <div>
-            <span>Alamat</span>
-            <p>{profile.address}</p>
+            <span>
+              Alamat
+            </span>
+
+            <p>
+              {profile.address}
+            </p>
           </div>
+
         </div>
 
-        <button onClick={() => navigate("/editprofile")}>
+        {/* =========================
+            BUTTONS
+        ========================= */}
+        <button
+          onClick={() =>
+            navigate("/editprofile")
+          }
+        >
           Edit Profile
         </button>
 
-        <button onClick={handleLogout}>
+        <button
+          onClick={handleLogout}
+        >
           Logout
         </button>
+
       </div>
     </div>
   );

@@ -1,6 +1,11 @@
+// src/sections/Services.jsx
+
 import "./Services.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Services() {
+  const navigate = useNavigate();
+
   const services = [
     {
       id: 1,
@@ -28,8 +33,6 @@ export default function Services() {
     },
   ];
 
-
-
   return (
     <section id="services" className="services">
       <h2 className="section-title">Layanan Kami</h2>
@@ -42,7 +45,10 @@ export default function Services() {
             <h3>{item.title}</h3>
             <p>{item.desc}</p>
 
-            <button className="btn-service">
+            <button
+              className="btn-service"
+              onClick={() => navigate("/services/proses")}
+            >
               Cek Selengkapnya
             </button>
           </div>

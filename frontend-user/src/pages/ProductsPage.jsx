@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabaseClient";
 import "./ProductsPage.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 export default function ProductsPage() {
+
+  const navigate = useNavigate();
 
   const [products, setProducts] = useState([]);
   const [loadingId, setLoadingId] = useState(null);
@@ -65,9 +68,17 @@ export default function ProductsPage() {
       console.log("USER:", user);
       console.log("USER ERROR:", userError);
 
-      // BELUM LOGIN
+      /* =========================
+         BELUM LOGIN
+      ========================= */
       if (!user) {
-        alert("Silakan login terlebih dahulu");
+
+        alert(
+          "Silakan login atau register terlebih dahulu"
+        );
+
+        navigate("/userlogin");
+
         return;
       }
 
@@ -110,6 +121,7 @@ export default function ProductsPage() {
         console.log("JSON ERROR:", jsonErr);
 
         alert("Response backend bukan JSON");
+
         return;
       }
 
@@ -131,11 +143,16 @@ export default function ProductsPage() {
       /* =========================
          SUCCESS
       ========================= */
-      alert("Produk berhasil ditambahkan ke cart");
+      alert(
+        "Produk berhasil ditambahkan ke cart"
+      );
 
     } catch (err) {
 
-      console.log("ADD TO CART ERROR:", err);
+      console.log(
+        "ADD TO CART ERROR:",
+        err
+      );
 
       alert(
         "Backend tidak terhubung"
@@ -197,14 +214,21 @@ export default function ProductsPage() {
 
                     <span className="price">
                       Rp{" "}
-                      {Number(p.price || 0)
-                        .toLocaleString("id-ID")}
+                      {Number(
+                        p.price || 0
+                      ).toLocaleString(
+                        "id-ID"
+                      )}
                     </span>
 
                     <button
                       className="btn"
-                      disabled={loadingId === p.id}
-                      onClick={() => addToCart(p.id)}
+                      disabled={
+                        loadingId === p.id
+                      }
+                      onClick={() =>
+                        addToCart(p.id)
+                      }
                     >
                       {
                         loadingId === p.id

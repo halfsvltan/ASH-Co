@@ -1,99 +1,264 @@
+/* =========================
+   PAGE
+========================= */
 .edit-profile {
   min-height: 100vh;
+
   display: flex;
   justify-content: center;
-  padding-top: 120px;
+  align-items: flex-start;
+
+  padding:
+    120px 20px
+    80px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f8f9fb 0%,
+      #eef1f5 100%
+    );
 }
 
-/* ================= CARD ================= */
+/* =========================
+   CARD
+========================= */
 .edit-card {
   width: 100%;
-  max-width: 420px;
-  background: #fff;
-  padding: 24px;
-  border-radius: 14px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  max-width: 520px;
+
+  background: #ffffff;
+
+  padding: 34px;
+
+  border-radius: 26px;
+
+  box-shadow:
+    0 12px 40px
+    rgba(0, 0, 0, 0.08);
+
+  border:
+    1px solid
+    rgba(0, 0, 0, 0.04);
+
+  transition: 0.3s ease;
 }
 
+.edit-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 18px 50px
+    rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   TITLE
+========================= */
 .edit-card h1 {
   text-align: center;
-  margin-bottom: 20px;
+
+  margin: 0 0 30px;
+
+  font-size: 30px;
+  font-weight: 700;
+
+  color: #111;
 }
 
-/* ================= FORM ================= */
-.edit-form .form-group {
-  margin-bottom: 14px;
+/* =========================
+   FORM
+========================= */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.edit-form label {
+/* =========================
+   FORM GROUP
+========================= */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+
   font-size: 13px;
-  color: #555;
-  display: block;
-  margin-bottom: 4px;
+  font-weight: 600;
+
+  color: #666;
+
+  letter-spacing: 0.3px;
 }
 
+/* =========================
+   INPUT & TEXTAREA
+========================= */
 .edit-form input,
 .edit-form textarea {
   width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  font-size: 14px;
-  transition: border 0.2s ease, box-shadow 0.2s ease;
+
+  padding:
+    14px 16px;
+
+  border-radius: 14px;
+
+  border:
+    1.5px solid
+    #e3e5e8;
+
+  background: #fafafa;
+
+  font-size: 15px;
+
+  color: #111;
+
+  transition:
+    border 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+
+  box-sizing: border-box;
 }
 
 .edit-form input:focus,
 .edit-form textarea:focus {
-  border-color: #b10000;
   outline: none;
-  box-shadow: 0 0 0 2px rgba(177, 0, 0, 0.1);
+
+  border-color: #111;
+
+  background: #fff;
+
+  box-shadow:
+    0 0 0 4px
+    rgba(0, 0, 0, 0.06);
 }
 
 .edit-form textarea {
-  resize: none;
-  height: 80px;
+  resize: vertical;
+  min-height: 110px;
 }
 
-/* ================= BUTTON SAVE ================= */
+/* =========================
+   SAVE BUTTON
+========================= */
 .btn-save {
   width: 100%;
-  margin-top: 10px;
-  height: 40px;
-  background: #b10000;
-  color: #fff;
+
+  height: 52px;
+
+  margin-top: 8px;
+
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 16px;
+
+  background: #111;
+  color: #fff;
+
+  font-size: 15px;
   font-weight: 600;
-  transition: all 0.2s ease;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
 }
 
 .btn-save:hover {
-  background: #8f0000;
+  background: #222;
+
+  transform: translateY(-2px);
 }
 
-/* ================= BUTTON CANCEL ================= */
+.btn-save:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* =========================
+   CANCEL BUTTON
+========================= */
 .btn-cancel {
   width: 100%;
-  margin-top: 10px;
-  height: 40px;
-  background: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+
+  height: 52px;
+
+  margin-top: 14px;
+
+  border-radius: 16px;
+
+  background: #fff;
+
+  color: #e53935;
+
+  border:
+    1.5px solid
+    #e53935;
+
+  font-size: 15px;
+  font-weight: 600;
+
   cursor: pointer;
-  font-weight: 500;
-  transition: all 0.2s ease;
+
+  transition: 0.25s ease;
 }
 
 .btn-cancel:hover {
-  background: #f5f5f5;
-  border-color: #999;
+  background: #e53935;
+
+  color: #fff;
+
+  border-color: #e53935;
+
+  transform: translateY(-2px);
 }
 
-/* ================= LOADING ================= */
+/* =========================
+   LOADING
+========================= */
 .edit-loading {
-  margin-top: 120px;
+  margin-top: 140px;
+
   text-align: center;
-  font-size: 14px;
-  color: #666;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  color: #ff0000;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 600px) {
+
+  .edit-profile {
+    padding:
+      100px 16px
+      60px;
+  }
+
+  .edit-card {
+    padding: 24px;
+
+    border-radius: 22px;
+  }
+
+  .edit-card h1 {
+    font-size: 24px;
+  }
+
+  .edit-form input,
+  .edit-form textarea {
+    font-size: 14px;
+    padding: 13px 14px;
+  }
+
+  .btn-save,
+  .btn-cancel {
+    height: 48px;
+    font-size: 14px;
+  }
 }

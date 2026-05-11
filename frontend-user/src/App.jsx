@@ -28,6 +28,9 @@ import AuthCallback from "./pages/AuthCallback";
 import ProductsPage from "./pages/ProductsPage";
 import CartPage from "./pages/CartPage";
 
+import DTFPage from "./pages/services/DTFPage";
+import Proses from "./pages/services/Proses";
+
 /* ================= SCROLL TO TOP ================= */
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -181,6 +184,28 @@ const router = createBrowserRouter(
       <ScrollToTop />
       <Navbar />
       <CartPage />
+      <Footer />
+    </>
+  ),
+},
+{
+  path: "/services/dtf",
+  element: (
+    <>
+      <ScrollToTop />
+      <Navbar />
+      <DTFPage />
+      <Footer />
+    </>
+  ),
+},
+{
+  path: "/services/proses",
+  element: (
+    <>
+      <ScrollToTop />
+      <Navbar />
+      <Proses />
       <Footer />
     </>
   ),
