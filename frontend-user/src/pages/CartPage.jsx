@@ -33,8 +33,11 @@ export default function CartPage() {
         return;
       }
 
+      /* =========================
+         GET CART
+      ========================= */
       const response = await fetch(
-        `${API_URL}/api/cart/${user.id}`
+        `${API_URL}/api/cart/user/${user.id}`
       );
 
       const result = await response.json();
@@ -97,7 +100,7 @@ export default function CartPage() {
 
       const result = await response.json();
 
-      console.log(result);
+      console.log("UPDATE RESULT:", result);
 
       if (!response.ok) {
         alert(result.message);
@@ -139,8 +142,11 @@ export default function CartPage() {
 
     try {
 
+      /* =========================
+         DELETE CART
+      ========================= */
       const response = await fetch(
-        `${API_URL}/api/cart/${cartId}`,
+        `${API_URL}/api/cart/delete/${cartId}`,
         {
           method: "DELETE",
         }
@@ -155,6 +161,9 @@ export default function CartPage() {
         return;
       }
 
+      /* =========================
+         UPDATE UI
+      ========================= */
       setCartItems((prev) =>
         prev.filter(
           (item) =>
@@ -166,7 +175,7 @@ export default function CartPage() {
 
     } catch (err) {
 
-      console.log(err);
+      console.log("DELETE ERROR:", err);
 
       alert("Gagal hapus item");
     }
